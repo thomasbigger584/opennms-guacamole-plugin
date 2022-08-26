@@ -87,10 +87,9 @@
                                 <feature>framework</feature>
                             </framework>
                             <features>
-                                <feature>opennms-plugins-guacamole</feature>
-                                <feature>okhttp</feature>
+                                <feature>opennms-guacamole-plugin</feature>
+                                <feature>guacamole</feature>
                                 <feature>guava</feature>
-                                <feature>jackson</feature>
                             </features>
                         </configuration>
                     </execution>
@@ -117,7 +116,7 @@
         </dependency>
         <dependency>
             <groupId>org.opennms.plugins.guacamole</groupId>
-            <artifactId>guacamole-plugin</artifactId>
+            <artifactId>plugin</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>

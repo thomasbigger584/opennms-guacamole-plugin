@@ -1,47 +1,7 @@
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0
-                http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
-                http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0
-                http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.1.0.xsd">
+                http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-    <!-- Configuration stored in $OPENNMS_HOME/etc/com.company.myplugin.cfg file -->
-    <cm:property-placeholder id="mypluginPluginProperties" persistent-id="org.opennms.guacamole.plugin" update-strategy="reload">
-        <cm:default-properties>
-            <cm:property name="url" value="http://127.0.0.1:8888/target"/>
-            <cm:property name="apiKey" value="TOKEN"/>
-        </cm:default-properties>
-    </cm:property-placeholder>
-
-    <!-- Pull in service implementations from the OSGi registry -->
-    <reference id="alarmDao" interface="org.opennms.integration.api.v1.dao.AlarmDao" availability="optional"/>
-    <reference id="edgeDao" interface="org.opennms.integration.api.v1.dao.EdgeDao" availability="optional"/>
-    <reference id="eventForwarder" interface="org.opennms.integration.api.v1.events.EventForwarder"
-               availability="optional"/>
-
-    <!-- Build our API client -->
-    <bean id="apiClient" class="org.opennms.guacamole.plugin.ApiClient">
-        <argument value="${url}"/>
-        <argument value="${apiKey}"/>
-    </bean>
-
-    <!-- Build our forwarder bean -->
-    <bean id="alarmForwarder" class="org.opennms.guacamole.plugin.AlarmForwarder">
-        <argument ref="apiClient"/>
-        <argument ref="eventForwarder"/>
-    </bean>
-    <!-- Expose the forwarder as a AlarmLifecycleListener so we get callbacks -->
-    <service interface="org.opennms.integration.api.v1.alarms.AlarmLifecycleListener" ref="alarmForwarder"/>
-    <!-- Expose the forwarder directly for access from our shell commands -->
-    <service interface="org.opennms.guacamole.plugin.AlarmForwarder" ref="alarmForwarder"/>
-
-    <!-- Build our forwarder bean -->
-    <bean id="topologyForwarder" class="org.opennms.guacamole.plugin.TopologyForwarder">
-        <argument ref="apiClient"/>
-        <argument ref="edgeDao"/>
-    </bean>
-    <!-- Expose the forwarder directly for access from our shell commands -->
-    <service interface="org.opennms.guacamole.plugin.TopologyForwarder" ref="topologyForwarder"/>
 
     <!-- Build and expose the JAX-RS annotated webhook handler.
          This will automatically mount the endpoint over the REST API. -->
@@ -52,9 +12,5 @@
         </service-properties>
     </service>
 
-    <!-- Expose our custom event definitions bundled in the .jar -->
-    <service interface="org.opennms.integration.api.v1.config.events.EventConfExtension">
-        <bean class="org.opennms.guacamole.plugin.EventConfExtension"/>
-    </service>
 
 </blueprint>

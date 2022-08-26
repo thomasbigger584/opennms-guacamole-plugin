@@ -25,8 +25,6 @@
         <log4j.version>2.17.2</log4j.version>
         <metrics.version>4.1.12.1</metrics.version>
         <mockito.version>2.18.0</mockito.version>
-        <okhttp.version>3.10.0</okhttp.version>
-        <okhttp.bundle.version>3.10.0_2</okhttp.bundle.version>
         <okio.bundle.version>1.14.0_1</okio.bundle.version>
         <opennms.api.version>1.0.0</opennms.api.version>
         <osgi.version>7.0.0</osgi.version>
@@ -34,6 +32,7 @@
         <osgi.enterprise.version>5.0.0</osgi.enterprise.version>
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <swagger.version>2.1.7</swagger.version>
+        <guacamole.version>1.4.0</guacamole.version>
     </properties>
 
     <version>0.1.0-SNAPSHOT</version>

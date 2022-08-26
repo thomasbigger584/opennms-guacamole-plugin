@@ -82,16 +82,6 @@
             <artifactId>guava</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.servicemix.bundles</groupId>
-            <artifactId>org.apache.servicemix.bundles.okhttp</artifactId>
-            <version>${okhttp.bundle.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>logging-interceptor</artifactId>
-            <version>${okhttp.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
@@ -100,6 +90,12 @@
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
             <version>${metrics.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.guacamole</groupId>
+            <artifactId>guacamole-common</artifactId>
+            <version>${guacamole.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- Test -->

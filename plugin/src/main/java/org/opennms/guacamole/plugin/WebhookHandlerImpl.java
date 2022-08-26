@@ -10,7 +10,7 @@ public class WebhookHandlerImpl implements WebhookHandler {
 
     @Override
     public Response ping() {
-        return Response.ok("pong").build();
+        return Response.ok("WebhookHandlerImpl.ping").build();
     }
 
     @Override
