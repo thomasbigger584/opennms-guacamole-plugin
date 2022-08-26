@@ -9,7 +9,7 @@ mvn clean install
 From the OpenNMS Karaf shell:
 
 ```
-feature:repo-add mvn:org.opennms/karaf-features/0.1.0-SNAPSHOT/xml
+feature:repo-add mvn:org.opennms.plugins.guacamole/karaf-features/0.1.0-SNAPSHOT/xml/features
 feature:install opennms-plugins-guacamole
 ```
 

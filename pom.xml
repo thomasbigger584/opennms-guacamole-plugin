@@ -195,7 +195,7 @@
 
     <modules>
         <module>assembly</module>
-        <module>plugin</module>
         <module>karaf-features</module>
+        <module>plugin</module>
     </modules>
 </project>

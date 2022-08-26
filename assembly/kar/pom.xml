@@ -31,7 +31,7 @@
                             <ignoreDependencyFlag>true</ignoreDependencyFlag>
                             <archive>
                                 <manifestEntries>
-                                    <Karaf-Feature-Start>false</Karaf-Feature-Start>
+                                    <Karaf-Feature-Start>true</Karaf-Feature-Start>
                                 </manifestEntries>
                             </archive>
                         </configuration>
